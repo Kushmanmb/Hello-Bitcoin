@@ -1,0 +1,34 @@
+{
+  "name": "hello-bitcoin",
+  "version": "1.0.0",
+  "description": "Hello Bitcoin – a reference project by kushmanmb demonstrating Bitcoin fundamentals, wallet utilities, and scripting.",
+  "author": "kushmanmb <https://github.com/Kushmanmb>",
+  "license": "Apache-2.0",
+  "main": "src/hello-bitcoin.js",
+  "scripts": {
+    "start": "node src/hello-bitcoin.js",
+    "test": "node --test tests/hello-bitcoin.test.js",
+    "lint": "eslint src/ tests/ --ext .js",
+    "build": "node src/hello-bitcoin.js"
+  },
+  "keywords": [
+    "bitcoin",
+    "blockchain",
+    "wallet",
+    "script",
+    "hello-bitcoin",
+    "kushmanmb"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kushmanmb/Hello-Bitcoin.git"
+  },
+  "homepage": "https://github.com/Kushmanmb/Hello-Bitcoin#readme",
+  "bugs": {
+    "url": "https://github.com/Kushmanmb/Hello-Bitcoin/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {}
+}
