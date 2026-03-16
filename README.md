@@ -1,98 +1,4 @@
-# Hello Bitcoin 🟠
-
-[![Hello Bitcoin CI/CD](https://github.com/Kushmanmb/Hello-Bitcoin/actions/workflows/ci.yml/badge.svg)](https://github.com/Kushmanmb/Hello-Bitcoin/actions/workflows/ci.yml)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org)
-[![Author: kushmanmb](https://img.shields.io/badge/Author-kushmanmb-orange.svg)](https://github.com/Kushmanmb)
-
-> **"Hello Bitcoin"** — a reference project by **kushmanmb** demonstrating Bitcoin fundamentals: wallet generation, Bitcoin scripting (contracts), and a full CI/CD pipeline.
-
----
-
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Repository Structure](#repository-structure)
-3. [Getting Started](#getting-started)
-4. [Build & Run](#build--run)
-5. [Testing](#testing)
-6. [Workflows & Pipelines](#workflows--pipelines)
-7. [Bitcoin Contract / Script](#bitcoin-contract--script)
-8. [Wallet Utilities](#wallet-utilities)
-9. [Social Portals & Links](#social-portals--links)
-10. [Contributing](#contributing)
-11. [Policy](#policy)
-12. [License](#license)
-
----
-
-## Project Overview
-
-**Hello Bitcoin** is the foundational repository for all Bitcoin-related work by [kushmanmb](https://github.com/Kushmanmb).  
-It provides:
-
-| Module | Description |
-|--------|-------------|
-| `src/hello-bitcoin.js` | Entry point — prints the greeting and runs a demo |
-| `src/wallet.js` | Deterministic wallet creation and address derivation |
-| `src/contract.js` | Bitcoin Script / contract builder and evaluator |
-| `tests/` | Full test suite using the built-in Node.js test runner |
-| `.github/workflows/ci.yml` | CI/CD pipeline: build → test → deploy |
-
----
-
-## Repository Structure
-
-```
-Hello-Bitcoin/
-├── src/
-│   ├── hello-bitcoin.js   # Main entry point
-│   ├── wallet.js          # Wallet utilities
-│   └── contract.js        # Bitcoin script / contract module
-├── tests/
-│   └── hello-bitcoin.test.js  # Unit & integration tests
-├── .github/
-│   └── workflows/
-│       └── ci.yml         # GitHub Actions CI/CD pipeline
-├── README.md              # This file
-├── POLICY.md              # Contribution & usage policy
-├── SOCIAL.md              # Social portals & linked accounts
-└── LICENSE                # Apache 2.0
-```
-
----
-
-## Getting Started
-
-**Prerequisites:** [Node.js 18+](https://nodejs.org)
-
-```bash
-# Clone the repository
-git clone https://github.com/Kushmanmb/Hello-Bitcoin.git
-cd Hello-Bitcoin
-
-# Install dependencies (none required — uses Node.js built-ins only)
-npm install
-```
-
----
-
-## Build & Run
-
-```bash
-# Build & run Hello Bitcoin
-npm run build
-
-# Or run directly
-npm start
-```
-
-Expected output:
-
-```
-=========================================
            H E L L O   B I T C O I N
-=========================================
 Author  : kushmanmb
 GitHub  : https://github.com/Kushmanmb
 Facebook: https://www.facebook.com/Kushmanmb23
@@ -108,9 +14,7 @@ X       : https://x.com/kushmanmb
   Script  : 6a0d48656c6c6f20426974636f696e
   Result  : VALID ✓
 
-=========================================
 Build complete – Hello Bitcoin is live!
-=========================================
 ```
 
 ---
@@ -221,3 +125,55 @@ See [POLICY.md](POLICY.md) for the full contribution and usage policy.
 This project is licensed under the [Apache License 2.0](LICENSE).
 
 Copyright © 2026 kushmanmb
+# Hello-Bitcoin
+
+HELLO BITCOIN
+
+## Installing a Bitcoin Node
+
+This repository includes a shell script that downloads and installs
+[Bitcoin Core](https://bitcoincore.org/) — the reference implementation of
+the Bitcoin full-node software.
+
+### Requirements
+
+| Platform | Requirement |
+|----------|-------------|
+| Linux (x86_64 / aarch64) | `curl`, `tar`, `sha256sum` |
+| macOS | [Homebrew](https://brew.sh/) |
+
+### Quick Start
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Kushmanmb/Hello-Bitcoin.git
+cd Hello-Bitcoin
+
+# 2. Run the installer  (adds Bitcoin Core to ~/.local/bitcoin-core on Linux)
+chmod +x install.sh
+./install.sh
+
+# 3. Start the node
+bitcoind -daemon
+
+# 4. Check sync status
+bitcoin-cli getblockchaininfo
+
+# 5. Stop the node
+bitcoin-cli stop
+```
+
+### Configuration
+
+The installer copies `bitcoin.conf` to `~/.bitcoin/bitcoin.conf` on first run.
+Edit that file to customise RPC credentials, network (mainnet/testnet), and
+other settings before starting the node.
+
+> **Important:** Change the default `rpcpassword` in `bitcoin.conf` before
+> exposing the RPC port to any network.
+
+### Data directory
+
+Bitcoin's blockchain data is stored in `~/.bitcoin/` by default (≈ 600 GB for
+a full mainnet node at the time of writing). Make sure you have sufficient
+free disk space before syncing from genesis.
